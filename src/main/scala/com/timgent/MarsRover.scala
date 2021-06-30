@@ -8,12 +8,19 @@ import scala.io.StdIn.readLine
 import scala.util.matching.Regex
 import scala.util.{Failure, Success, Try}
 object MarsRover extends App {
-  println("""Welcome to Mars Rover! Now let's get roving! Please enter details of your map grid and rovers as follows:
-      |The first entry should be the size of your grid in the format x y. e.g. 5 4
-      |Subsequent entries each represent a rover and their movement in the format (x, y, D) <movement>. e.g. (1, 3, N) FLLFRF
-      | - x and y represent the starting co-ordinates for the rover
-      | - D represents the direction the rover is facing and can be N for North, E for East, S for South, or W for West
-      | - <movement> is a list of instructions, options are F for forward, L for left, R for right
+  println("""
+      |======================
+      |Welcome to Mars Rover!
+      |======================
+      |Now let's get roving! Please enter details of your map grid and rovers as follows:
+      |
+      |- The first entry should be the size of your grid in the format x y. e.g. 5 4
+      |
+      |- Subsequent entries each represent a rover and their movement in the format (x, y, D) <movement>. e.g. (1, 3, N) FLLFRF
+      |  - x and y represent the starting co-ordinates for the rover
+      |  - D represents the direction the rover is facing and can be N for North, E for East, S for South, or W for West
+      |  - <movement> is a list of instructions, options are F for forward, L for left, R for right
+      |  
       |Enter a blank line when you have finished providing input
       |""".stripMargin)
   val result = run(getInput = () => Option(readLine()))
