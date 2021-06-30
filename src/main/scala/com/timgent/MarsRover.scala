@@ -24,6 +24,7 @@ object MarsRover extends App {
       |Enter a blank line when you have finished providing input
       |""".stripMargin)
   val result = run(getInput = () => Option(readLine()))
+  println("Nice job! This is where your rovers ended up:")
   println(result)
 
   def run(getInput: () => Option[String]): String = {
