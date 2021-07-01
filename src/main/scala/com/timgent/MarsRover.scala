@@ -87,7 +87,7 @@ object MarsRover extends App {
   }
 
   def parseRover(str: String, mapSize: MapSize): Either[BadRoverPosWithInstructions, RoverPosWithInstructions] = {
-    val regex: Regex = "\\((\\d+), (\\d+), (\\w)\\) (\\w+)".r()
+    val regex: Regex = "\\((-?\\d+), (-?\\d+), (\\w)\\) (\\w+)".r()
     val matches = regex.findAllIn(str).matchData.toList
     matches match {
       case singleMatch :: Nil =>

@@ -73,6 +73,9 @@ class MarsRoverSpec extends AnyWordSpec with Matchers {
       "the rover is out of bounds of the map" in {
         MarsRover.parseRover("(2, 3, N) LFR", MapSize(1, 1)) shouldBe Left(OutOfBoundsRover)
       }
+      "the rover has a negative co-ordinate" in {
+        MarsRover.parseRover("(2, -1, N) LFR", MapSize(4, 4)) shouldBe Left(OutOfBoundsRover)
+      }
       "the overall format is incorrect" in {
         MarsRover.parseRover("(2, 3) LFR", MapSize(4, 4)) shouldBe Left(InvalidRoverDetails)
       }
