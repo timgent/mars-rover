@@ -51,6 +51,12 @@ class MarsRoverSpec extends AnyWordSpec with Matchers {
     }
   }
 
+  "MarsRover.parseMapSize" should {
+    "fail to parse a map size with a negative number" in {
+      MarsRover.parseMapSize("-1 5") shouldBe Left(BadMapSize)
+    }
+  }
+
   "MarsRover.parseRover" should {
     "successfully parse input" when {
       "given a valid input string" in {

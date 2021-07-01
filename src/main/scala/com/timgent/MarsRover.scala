@@ -120,8 +120,9 @@ object MarsRover extends App {
         width <- Try(rawCoords(1).toInt).toOption
       } yield MapSize(height, width)
       maybeMapSize match {
-        case Some(mapSize) => Right(mapSize)
-        case None          => Left(BadMapSize)
+        case Some(mapSize) if mapSize.width < 0 || mapSize.height < 0 => Left(BadMapSize)
+        case Some(mapSize)                                            => Right(mapSize)
+        case None                                                     => Left(BadMapSize)
       }
     }
   }
